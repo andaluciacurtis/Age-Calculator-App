@@ -1,3 +1,7 @@
+html {
+  font-family: 'Poppins', sans-serif;
+}
+
 .outer-container {
   display: flex;
   height: 100vh;
@@ -10,8 +14,7 @@
 }
 
 main {
-  height: 60%;
-  width: 50%;
+  max-width: 700px;
   background-color: white;
 
   border-radius: 3% 3% 25% 3%;
@@ -22,4 +25,55 @@ main {
 .input-container {
   display: flex;
   justify-content: space-between;
+  padding: 20px;
+  
+  padding-right: 50px;
+}
+
+.input-container p {
+  font-size: 0.8rem;
+  font-size:400;
+  font-style:normal;
+  padding: 5px;
+  letter-spacing:2px;
+}
+
+input {
+  padding: 15px;
+  width: 50%;
+  border-radius: 10px;
+
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.divider-container {
+  display: flex;
+  padding: 10px 10px;
+}
+
+.arrow-button {
+  background-color: hsl(259, 100%, 65%);
+  width: fit-content;
+  padding: 15px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.arrow-button:hover {
+  background-color: black;
+}
+
+.results-container {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 5rem;
+  font-style: italic;
+  font-weight: 800;
+}
+
+.year-result, .month-result, .day-result {
+  color: hsl(259, 100%, 65%);
 }
