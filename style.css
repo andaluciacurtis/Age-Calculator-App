@@ -40,13 +40,21 @@ main {
   padding-right: 50px;
 }
 
-.input-container p {
+.input-container h2 {
   font-size: 0.8rem;
-  font-size:400;
+  font-weight:400;
   font-style:normal;
   padding: 5px;
   letter-spacing:2px;
   color: hsl(0, 1%, 44%);
+}
+
+.input-container p {
+  font-style: italic;
+  font-weight:400;
+  font-size: 0.7rem;
+  color: red;
+  padding: 5px;
 }
 
 input {

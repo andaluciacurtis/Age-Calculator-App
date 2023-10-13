@@ -1,5 +1,9 @@
 const enterButton = document.querySelector(".arrow-button");
 
+const dayResult = document.querySelector(".day-result");
+const monthResult = document.querySelector(".month-result");
+const yearResult = document.querySelector(".year-result");
+
 enterButton.addEventListener("click", calculateAge);
 
 
@@ -16,8 +20,11 @@ function calculateAge() {
   
   if (checkDate(dayInput, monthInput, yearInput)) {
     console.log("yeah that works");
+
+    yearResult.innerHTML = currentYear - yearInput;
   } else {
     console.log("no");
+
   }
 }
 
