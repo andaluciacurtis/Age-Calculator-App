@@ -1,5 +1,15 @@
-html {
+body {
   font-family: 'Poppins', sans-serif;
+}
+
+/* removing the arrows/spinners for input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .outer-container {
@@ -36,20 +46,28 @@ main {
   font-style:normal;
   padding: 5px;
   letter-spacing:2px;
+  color: hsl(0, 1%, 44%);
 }
 
 input {
-  padding: 15px;
+  padding: 10px 20px;
   width: 50%;
+  
+  border: 1px solid hsl(0, 0%, 94%);
   border-radius: 10px;
 
   font-size: 32px;
+  font-weight:700;
+
   cursor: pointer;
 }
 
 .divider-container {
-  display: flex;
   padding: 10px 10px;
+}
+
+hr {
+  border: 1px solid hsl(0, 0%, 94%);
 }
 
 .arrow-button {
@@ -58,6 +76,9 @@ input {
   padding: 15px;
   border-radius: 100%;
   cursor: pointer;
+
+  float: right;
+  margin-top: -50px;
 }
 
 .arrow-button:hover {
