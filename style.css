@@ -8,9 +8,6 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input[type=number] {
-  -moz-appearance: textfield;
-}
 
 .outer-container {
   display: flex;
@@ -75,10 +72,6 @@ input:focus {
   border: 1px solid hsl(259, 100%, 65%);
 }
 
-.divider-container {
-  padding: 10px 10px;
-}
-
 hr {
   border: 1px solid hsl(0, 0%, 94%);
 }
@@ -112,3 +105,42 @@ h1 {
   color: hsl(259, 100%, 65%);
 }
 
+@media(max-width: 820px) {
+  h1 { 
+    font-size: 2.7rem;
+  }
+
+  .input-container {
+    padding-right: 0px;
+  }
+
+  input {
+    font-size: 18px;
+  }
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arrow-button img {
+    height: 30px;
+  }
+
+  .input-container {
+    padding-bottom: 50px;
+  }
+
+  .results-container {
+    padding-top: 50px;
+  }
+
+  .arrow-button {
+    margin-top: -40px;
+  }
+
+  main {
+    margin: 20px;
+  }
+}
