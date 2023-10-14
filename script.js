@@ -41,6 +41,23 @@ function calculateAge() {
       yearsAlive--;
     }
 
+    //calculating days
+    if (dayInput < currentDay) {
+      daysAlive = currentDay - dayInput;
+    } else { //dayInput > currentDay
+      let lastMonth = currentMonth - 1;
+      monthsAlive--;
+
+      if (lastMonth == 4 || lastMonth == 6 || lastMonth == 9 || lastMonth == 11) {
+        daysAlive = (30 - dayInput) + currentDay;
+      } else if (lastMonth == 2) {
+        isLeapYear =  ((currentYear % 4 == 0) && (currentYear % 100 != 0)) || (currentYear % 400 == 0);
+        isLeapYear ? daysAlive = (29 - dayInput) + currentDay : daysAlive = (28 - dayInput) + currentDay;
+      } else { //31 days
+        daysAlive = (31 - dayInput) + currentDay
+      }
+    }
+    
     yearResult.innerHTML = yearsAlive;
     monthResult.innerHTML = monthsAlive;
     dayResult.innerHTML = daysAlive;
@@ -54,20 +71,24 @@ function checkDate(day, month, year) {
   if (day === "") {
     returnError(dayInputContainer, "This field is required");
     isValid = false;
-  } else if (month === "") {
+  }
+  
+  if (month === "") {
     returnError(monthInputContainer, "This field is required");
     isValid = false;
-  } else if (year === "") {
+  }
+
+  if (year === "") {
     returnError(yearInputContainer, "This field is required");
     isValid = false;
   }
 
   // checks if the year is a leap year
   // leap years are either multiples of 400, of multiples of 4 and not of 100
-  let isLeapYear = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+  let isLeapYear =  ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 
   // checks if month if valid
-  if (month < 1 || month > 12) {
+  if (month > 12) {
     returnError(monthInputContainer, "Must be a valid month.");
     isValid = false;
   }
