@@ -24,28 +24,27 @@ function calculateAge() {
   let yearInput = yearInputContainer.querySelector(".year-input").value;
   
   if (checkDate(dayInput, monthInput, yearInput)) {
-    console.log("yeah that works");
     resetErrors();
 
-    yearResult.innerHTML = currentYear - yearInput;
+    let daysAlive = 0;
+    let monthsAlive = 0;
+    let yearsAlive = 0;
+
+    // calculating years
+    yearsAlive = currentYear - yearInput;
+
+    //calculating months
+    if (currentMonth >= monthInput) {
+      monthsAlive = currentMonth - monthInput;
+    } else {
+      monthsAlive = 12 - (monthInput - currentMonth);
+      yearsAlive--;
+    }
+
+    yearResult.innerHTML = yearsAlive;
+    monthResult.innerHTML = monthsAlive;
+    dayResult.innerHTML = daysAlive;
   }
-}
-
-function resetAll() {
-  resetErrors();
-  dayResult.innerHTML = "--";
-  monthResult.innerHTML = "--";
-  yearResult.innerHTML = "--";
-}
-
-function resetErrors() {
-  containers = {dayInputContainer, monthInputContainer, yearInputContainer};
-  
-  containers.forEach(function(container) {
-    container.querySelector("h2").style.color = "hsl(0, 1%, 44%)";
-    container.querySelector("input").style.border = "1px solid hsl(0, 0%, 94%)";
-    container.querySelector(".error").innerHTML = "";
-  })
 }
 
 function checkDate(day, month, year) {
@@ -83,7 +82,7 @@ function checkDate(day, month, year) {
 
   // checking to see if the input date is greater than today's date
   if (year > currentYear || (year == currentYear && (month > currentMonth || (month == currentMonth && day > currentDay)))) {
-    returnError(yearInputContainer, "Must be in the past.");
+      returnError(yearInputContainer, "Must be in the past.");
       isValid = false;
   }
 
@@ -97,4 +96,22 @@ function returnError(field, errorMessage) {
   // changing the field's title and input box to red
   field.querySelector("h2").style.color = "hsl(0, 100%, 67%)";
   field.querySelector("input").style.border = "1px solid hsl(0, 100%, 67%)";
+}
+
+// RESET FUNCTIONS
+function resetAll() {
+  resetErrors();
+  dayResult.innerHTML = "--";
+  monthResult.innerHTML = "--";
+  yearResult.innerHTML = "--";
+}
+
+function resetErrors() {
+  containers = [dayInputContainer, monthInputContainer, yearInputContainer];
+
+  containers.forEach(function(container) {
+    container.querySelector("h2").style.color = "hsl(0, 1%, 44%)";
+    container.querySelector("input").style.border = "1px solid hsl(0, 0%, 94%)";
+    container.querySelector(".error").innerHTML = "";
+  })
 }
